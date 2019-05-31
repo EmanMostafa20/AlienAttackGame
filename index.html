@@ -1,0 +1,82 @@
+<html>
+
+<head>
+    <title>Aliens Attack</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <link rel="icon" href="ufo.png">
+    <link rel="stylesheet" href="game.css">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="HandheldFriendly" content="true">
+</head>
+
+<body>
+    <section id="game">
+        <div id="main">
+            <div id="youDiv">
+                <img src="ninja.png">
+                <h1 class="names"> You</h1>
+            </div>
+            <h1 id="vs" class="names"> Vs.</h1>
+            <div id="alienDiv">
+                <img src="alien.png">
+                <h1 id="al" class="names">Alien</h1>
+                <div id="space"></div>
+            </div>
+        </div>
+        <form id="barDiv">
+            <div id="youBar">
+                <div id="youBar1" class="bar" :style="{width:youPercent*4+'px'}">{{youPercent}}%</div>
+            </div>
+            <div id="alienBar">
+                <div id="alienBar1" class="bar" :style="{width:alienPercent*4+'px'}">{{alienPercent}}%</div>
+            </div>
+        </form>
+        
+           <div class="others">
+                <div>
+                        <button id="start" class="options" @click="start" v-if="showStart">Start</button>
+                    </div>
+        <div id="buttons">
+                <div v-if="showButtons">
+                    <!-- <input type="text" v-model="width"> -->
+                    <button id="a" class="options" @click="attack">Attack</button>
+                    <button id="fa" class="options" @click="fAttack">Fast Attack</button>
+                    <button id="h" class="options" @click="heal" >Heal up</button>
+                    <button id="q" class="options" @click="quit">Quit</button>
+                </div>
+    
+            </div>
+    
+            <div id="scoreBoard">
+                <div v-if=" showAttackResult">
+                    <ul style="list-style: none;">
+                        <li id="youScore" v-for="items in you">{{items.a}}</li>
+                        <li id="alScore" v-for="items in alien">{{items.a}}</li>
+                    </ul>
+                </div>
+            </div>
+        
+    
+            <div id="scoreBoard">
+                <div v-if="showFastAttackResult">
+                    <ul style="list-style: none;">
+                        <li id="youScore" v-for="items in you">{{items.fa}}</li>
+                        <li id="alScore" v-for="items in alien">{{items.fa}}</li>
+                    </ul>
+                </div>
+            </div>
+            <div id="scoreBoard">
+                <div v-if="showHealResult">
+                    <ul style="list-style: none;">
+                        <li id="youScore" v-for="items in you">{{items.h}}</li>
+                        <li id="alScore" v-for="items in alien">{{items.h}}</li>
+                    </ul>
+                </div>
+            </div>
+            </div>
+    </section>
+</body>
+<script src="game.js"></script>
+
+</html>
