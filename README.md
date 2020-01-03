@@ -1,2 +1,2 @@
 # AlienAttackGame
-##A simple game with VueJS
+## A simple game with VueJS
